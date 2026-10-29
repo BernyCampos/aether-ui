@@ -23,25 +23,10 @@ final class AetherSettingsCommand extends Command
             $operation = $this->argument('operation');
             if ($operation === 'export') {
                 $json = json_encode(['schema_version' => 1, 'settings' => $store->read()], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . "\n";
-                if ($file = $this->argument('file')) {
-                    if (file_exists($file)) {
-                        throw new RuntimeException('Export destination exists; choose a new file.');
-                    }
-                    $handle = fopen($file, 'x');
-                    if ($handle === false) {
-                        throw new RuntimeException('Cannot create export.');
-                    }
-                    try {
-                        if (fwrite($handle, $json) !== strlen($json)) {
-                            throw new RuntimeException('Cannot write export.');
-                        }
-                    } finally {
-                        fclose($handle);
-                    }
-                    $this->info('Exported.');
-                } else {
-                    $this->line($json);
+                if ($this->argument('file')) {
+                    throw new RuntimeException('Direct file exports are not supported by Pelican Hub. Omit the file argument and redirect console output to a backup file outside the plugin.');
                 }
+                $this->line($json);
 
                 return self::SUCCESS;
             }

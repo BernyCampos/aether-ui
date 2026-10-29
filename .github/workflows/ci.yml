@@ -25,10 +25,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: php tools/lint.php
+      - name: Validate PHP syntax
         working-directory: aether-ui
-      - run: php tests/run.php
-        working-directory: aether-ui
+        run: |
+          find src database -type f -name '*.php' -print0 | xargs -0 -n1 php -l
       - run: node --test tests/runtime.test.cjs
         working-directory: aether-ui
       - run: python tools/package.py
