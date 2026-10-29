@@ -13,7 +13,7 @@ Pelican Panel **1.0.0-rc.2**, plugin API 1 and the panel's supported PHP and Nod
 ## Install or update
 
 1. Back up your panel and export existing Aether settings before updating.
-2. In **Admin → Plugins**, import `aether-ui-0.2.2.zip` and install it. Use the install ZIP, not the source ZIP.
+2. In **Admin → Plugins**, import `aether-ui-0.2.3.zip` and install it. Use the install ZIP, not the source ZIP.
 3. Enable Aether UI and disable other appearance themes to avoid conflicting styles.
 4. Open Aether UI's **Settings**, save your choices and reload the page.
 
