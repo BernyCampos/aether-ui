@@ -1,4 +1,4 @@
-# Aether UI 0.2.2
+# Aether UI 0.2.3
 
 Aether UI is a customizable light and dark theme for Pelican Panel, created by BernyC. Adjust colors, typography, spacing, corners, effects, navigation, server cards, console appearance and login branding through 82 persistent settings. It installs as a native theme plugin without modifying Pelican's core files.
 
