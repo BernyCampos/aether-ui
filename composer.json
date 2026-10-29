@@ -1,0 +1,18 @@
+{
+  "name": "aether-ui/pelican-theme",
+  "description": "Customizable light and dark theme with persistent design controls for Pelican Panel.",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": "^8.4 || ^8.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aether\\UI\\": "src/"
+    }
+  },
+  "scripts": {
+    "test": "php tests/run.php",
+    "lint": "php tools/lint.php"
+  }
+}

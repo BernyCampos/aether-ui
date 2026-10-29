@@ -1,0 +1,70 @@
+name: Validate Aether UI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.4', '8.5']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: aether-ui
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: php tools/lint.php
+        working-directory: aether-ui
+      - run: php tests/run.php
+        working-directory: aether-ui
+      - run: node --test tests/runtime.test.cjs
+        working-directory: aether-ui
+      - run: python tools/package.py
+        working-directory: aether-ui
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aether-ui-php-${{ matrix.php }}
+          path: aether-ui/dist/*
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: aether-release
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: aether-ui
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/package.py
+        working-directory: aether-ui
+      - name: Publish versioned archives
+        working-directory: aether-ui
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          version=$(python -c 'import json; print(json.load(open("plugin.json"))["version"])')
+          tag="v$version"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists; its assets are preserved."
+            exit 0
+          fi
+          gh release create "$tag" "dist/aether-ui-$version.zip" "dist/aether-ui-$version-source.zip" dist/SHA256SUMS.txt --target "$GITHUB_SHA" --title "Aether UI $version" --notes-file docs/RELEASE.md

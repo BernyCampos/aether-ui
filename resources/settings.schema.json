@@ -1,0 +1,583 @@
+{
+  "enabled": {
+    "group": "general",
+    "label": "Enable Aether UI",
+    "type": "boolean",
+    "default": true
+  },
+  "mode": {
+    "group": "general",
+    "label": "Default appearance",
+    "type": "enum",
+    "default": "system",
+    "options": {
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
+  "lock_mode": {
+    "group": "general",
+    "label": "Lock appearance",
+    "type": "boolean",
+    "default": false
+  },
+  "primary": {
+    "group": "colors",
+    "label": "Primary",
+    "type": "color",
+    "default": "#7c3aed"
+  },
+  "secondary": {
+    "group": "colors",
+    "label": "Secondary accent",
+    "type": "color",
+    "default": "#0891b2"
+  },
+  "success": {
+    "group": "colors",
+    "label": "Success",
+    "type": "color",
+    "default": "#15803d"
+  },
+  "warning": {
+    "group": "colors",
+    "label": "Warning",
+    "type": "color",
+    "default": "#b45309"
+  },
+  "danger": {
+    "group": "colors",
+    "label": "Danger",
+    "type": "color",
+    "default": "#dc2626"
+  },
+  "info": {
+    "group": "colors",
+    "label": "Information",
+    "type": "color",
+    "default": "#2563eb"
+  },
+  "light_background": {
+    "group": "light_palette",
+    "label": "Background",
+    "type": "color",
+    "default": "#f4f5fb"
+  },
+  "light_surface": {
+    "group": "light_palette",
+    "label": "Surface",
+    "type": "color",
+    "default": "#ffffff"
+  },
+  "light_text": {
+    "group": "light_palette",
+    "label": "Text",
+    "type": "color",
+    "default": "#182033"
+  },
+  "light_muted": {
+    "group": "light_palette",
+    "label": "Secondary text",
+    "type": "color",
+    "default": "#526078"
+  },
+  "light_border": {
+    "group": "light_palette",
+    "label": "Border",
+    "type": "color",
+    "default": "#dce1ec"
+  },
+  "dark_background": {
+    "group": "dark_palette",
+    "label": "Background",
+    "type": "color",
+    "default": "#0b1020"
+  },
+  "dark_surface": {
+    "group": "dark_palette",
+    "label": "Surface",
+    "type": "color",
+    "default": "#141c30"
+  },
+  "dark_text": {
+    "group": "dark_palette",
+    "label": "Text",
+    "type": "color",
+    "default": "#edf1ff"
+  },
+  "dark_muted": {
+    "group": "dark_palette",
+    "label": "Secondary text",
+    "type": "color",
+    "default": "#aab6cf"
+  },
+  "dark_border": {
+    "group": "dark_palette",
+    "label": "Border",
+    "type": "color",
+    "default": "#2d3952"
+  },
+  "font": {
+    "group": "typography",
+    "label": "Interface font",
+    "type": "enum",
+    "default": "system",
+    "options": {
+      "system": "System",
+      "inter": "Inter (included with Pelican)",
+      "serif": "Georgia",
+      "mono": "Monospace",
+      "custom": "Custom font"
+    }
+  },
+  "custom_font": {
+    "group": "typography",
+    "label": "Custom font family",
+    "type": "font",
+    "default": "Aether Custom",
+    "max": 64
+  },
+  "font_url": {
+    "group": "typography",
+    "label": "Custom WOFF2 URL or site path",
+    "type": "asset",
+    "default": "",
+    "max": 500
+  },
+  "font_size": {
+    "group": "typography",
+    "label": "Base font size (px)",
+    "type": "integer",
+    "default": 16,
+    "min": 14,
+    "max": 20
+  },
+  "line_height": {
+    "group": "typography",
+    "label": "Line height (%)",
+    "type": "integer",
+    "default": 150,
+    "min": 120,
+    "max": 190
+  },
+  "spacing": {
+    "group": "geometry",
+    "label": "Page spacing (px)",
+    "type": "integer",
+    "default": 24,
+    "min": 12,
+    "max": 40
+  },
+  "radius": {
+    "group": "geometry",
+    "label": "Card radius (px)",
+    "type": "integer",
+    "default": 18,
+    "min": 0,
+    "max": 32
+  },
+  "control_radius": {
+    "group": "geometry",
+    "label": "Control radius (px)",
+    "type": "integer",
+    "default": 10,
+    "min": 0,
+    "max": 24
+  },
+  "content_width": {
+    "group": "geometry",
+    "label": "Content width",
+    "type": "enum",
+    "default": "screen-2xl",
+    "options": {
+      "screen-xl": "XL",
+      "screen-2xl": "2XL",
+      "full": "Full width"
+    }
+  },
+  "border_width": {
+    "group": "geometry",
+    "label": "Border width (px)",
+    "type": "integer",
+    "default": 1,
+    "min": 0,
+    "max": 3
+  },
+  "shadow": {
+    "group": "effects",
+    "label": "Shadows",
+    "type": "enum",
+    "default": "soft",
+    "options": {
+      "none": "None",
+      "soft": "Soft",
+      "strong": "Strong"
+    }
+  },
+  "glass": {
+    "group": "effects",
+    "label": "Translucent navigation",
+    "type": "boolean",
+    "default": true
+  },
+  "blur": {
+    "group": "effects",
+    "label": "Blur (px)",
+    "type": "integer",
+    "default": 16,
+    "min": 0,
+    "max": 32
+  },
+  "gradient": {
+    "group": "effects",
+    "label": "Ambient background",
+    "type": "boolean",
+    "default": true
+  },
+  "motion": {
+    "group": "effects",
+    "label": "Transitions",
+    "type": "boolean",
+    "default": true
+  },
+  "navigation": {
+    "group": "navigation",
+    "label": "Navigation layout",
+    "type": "enum",
+    "default": "sidebar",
+    "options": {
+      "inherit": "Pelican preference",
+      "sidebar": "Sidebar",
+      "topbar": "Top navigation",
+      "mixed": "Mixed"
+    }
+  },
+  "sidebar_width": {
+    "group": "navigation",
+    "label": "Sidebar width (px)",
+    "type": "integer",
+    "default": 260,
+    "min": 220,
+    "max": 360
+  },
+  "sidebar_collapsible": {
+    "group": "navigation",
+    "label": "Collapsible sidebar",
+    "type": "boolean",
+    "default": true
+  },
+  "nav_radius": {
+    "group": "navigation",
+    "label": "Navigation item radius (px)",
+    "type": "integer",
+    "default": 10,
+    "min": 0,
+    "max": 24
+  },
+  "nav_indicator": {
+    "group": "navigation",
+    "label": "Active item indicator",
+    "type": "boolean",
+    "default": true
+  },
+  "card_style": {
+    "group": "cards",
+    "label": "Card style",
+    "type": "enum",
+    "default": "elevated",
+    "options": {
+      "elevated": "Elevated",
+      "outlined": "Outlined",
+      "flat": "Flat"
+    }
+  },
+  "card_padding": {
+    "group": "cards",
+    "label": "Card padding (px)",
+    "type": "integer",
+    "default": 24,
+    "min": 12,
+    "max": 36
+  },
+  "card_hover": {
+    "group": "cards",
+    "label": "Highlight cards on hover",
+    "type": "boolean",
+    "default": true
+  },
+  "console_enabled": {
+    "group": "console",
+    "label": "Customize terminal appearance",
+    "type": "boolean",
+    "default": true
+  },
+  "console_background": {
+    "group": "console_colors",
+    "label": "Background",
+    "type": "color",
+    "default": "#0b1020"
+  },
+  "console_foreground": {
+    "group": "console_colors",
+    "label": "Text",
+    "type": "color",
+    "default": "#e2e8f0"
+  },
+  "console_cursor": {
+    "group": "console_colors",
+    "label": "Cursor",
+    "type": "color",
+    "default": "#a78bfa"
+  },
+  "console_selection": {
+    "group": "console_colors",
+    "label": "Selection",
+    "type": "color",
+    "default": "#45366e"
+  },
+  "console_black": {
+    "group": "console_colors",
+    "label": "Black",
+    "type": "color",
+    "default": "#20283e"
+  },
+  "console_red": {
+    "group": "console_colors",
+    "label": "Red",
+    "type": "color",
+    "default": "#f87171"
+  },
+  "console_green": {
+    "group": "console_colors",
+    "label": "Green",
+    "type": "color",
+    "default": "#86efac"
+  },
+  "console_yellow": {
+    "group": "console_colors",
+    "label": "Yellow",
+    "type": "color",
+    "default": "#fde68a"
+  },
+  "console_blue": {
+    "group": "console_colors",
+    "label": "Blue",
+    "type": "color",
+    "default": "#93c5fd"
+  },
+  "console_magenta": {
+    "group": "console_colors",
+    "label": "Magenta",
+    "type": "color",
+    "default": "#d8b4fe"
+  },
+  "console_cyan": {
+    "group": "console_colors",
+    "label": "Cyan",
+    "type": "color",
+    "default": "#67e8f9"
+  },
+  "console_white": {
+    "group": "console_colors",
+    "label": "White",
+    "type": "color",
+    "default": "#e2e8f0"
+  },
+  "console_brightBlack": {
+    "group": "console_colors",
+    "label": "Bright black",
+    "type": "color",
+    "default": "#64748b"
+  },
+  "console_brightRed": {
+    "group": "console_colors",
+    "label": "Bright red",
+    "type": "color",
+    "default": "#fca5a5"
+  },
+  "console_brightGreen": {
+    "group": "console_colors",
+    "label": "Bright green",
+    "type": "color",
+    "default": "#bbf7d0"
+  },
+  "console_brightYellow": {
+    "group": "console_colors",
+    "label": "Bright yellow",
+    "type": "color",
+    "default": "#fef08a"
+  },
+  "console_brightBlue": {
+    "group": "console_colors",
+    "label": "Bright blue",
+    "type": "color",
+    "default": "#bfdbfe"
+  },
+  "console_brightMagenta": {
+    "group": "console_colors",
+    "label": "Bright magenta",
+    "type": "color",
+    "default": "#e9d5ff"
+  },
+  "console_brightCyan": {
+    "group": "console_colors",
+    "label": "Bright cyan",
+    "type": "color",
+    "default": "#a5f3fc"
+  },
+  "console_brightWhite": {
+    "group": "console_colors",
+    "label": "Bright white",
+    "type": "color",
+    "default": "#ffffff"
+  },
+  "console_font": {
+    "group": "console",
+    "label": "Terminal font",
+    "type": "enum",
+    "default": "system",
+    "options": {
+      "system": "System",
+      "consolas": "Consolas",
+      "courier": "Courier New"
+    }
+  },
+  "console_font_size": {
+    "group": "console",
+    "label": "Terminal font size (px)",
+    "type": "integer",
+    "default": 14,
+    "min": 10,
+    "max": 24
+  },
+  "console_line_height": {
+    "group": "console",
+    "label": "Terminal line height (%)",
+    "type": "integer",
+    "default": 130,
+    "min": 100,
+    "max": 200
+  },
+  "console_rows": {
+    "group": "console",
+    "label": "Initial terminal rows",
+    "type": "integer",
+    "default": 25,
+    "min": 10,
+    "max": 60
+  },
+  "console_radius": {
+    "group": "console",
+    "label": "Terminal radius (px)",
+    "type": "integer",
+    "default": 14,
+    "min": 0,
+    "max": 28
+  },
+  "console_cursor_style": {
+    "group": "console",
+    "label": "Cursor style",
+    "type": "enum",
+    "default": "underline",
+    "options": {
+      "underline": "Underline",
+      "bar": "Bar",
+      "block": "Block"
+    }
+  },
+  "console_cursor_blink": {
+    "group": "console",
+    "label": "Blinking cursor",
+    "type": "boolean",
+    "default": false
+  },
+  "login_layout": {
+    "group": "login",
+    "label": "Login layout",
+    "type": "enum",
+    "default": "split",
+    "options": {
+      "centered": "Centered",
+      "split": "Split welcome panel"
+    }
+  },
+  "login_title": {
+    "group": "login",
+    "label": "Welcome title",
+    "type": "text",
+    "default": "",
+    "max": 100
+  },
+  "login_message": {
+    "group": "login",
+    "label": "Welcome message",
+    "type": "text",
+    "default": "",
+    "max": 300
+  },
+  "login_image": {
+    "group": "login",
+    "label": "Login background image URL or site path",
+    "type": "asset",
+    "default": "",
+    "max": 500
+  },
+  "login_width": {
+    "group": "login",
+    "label": "Login form width (px)",
+    "type": "integer",
+    "default": 440,
+    "min": 320,
+    "max": 600
+  },
+  "brand_name": {
+    "group": "branding",
+    "label": "Brand name",
+    "type": "text",
+    "default": "",
+    "max": 80
+  },
+  "brand_logo": {
+    "group": "branding",
+    "label": "Light logo URL or site path",
+    "type": "asset",
+    "default": "",
+    "max": 500
+  },
+  "brand_logo_dark": {
+    "group": "branding",
+    "label": "Dark logo URL or site path",
+    "type": "asset",
+    "default": "",
+    "max": 500
+  },
+  "brand_favicon": {
+    "group": "branding",
+    "label": "Favicon URL or site path",
+    "type": "asset",
+    "default": "",
+    "max": 500
+  },
+  "brand_logo_height": {
+    "group": "branding",
+    "label": "Logo height (px)",
+    "type": "integer",
+    "default": 32,
+    "min": 20,
+    "max": 72
+  },
+  "footer_text": {
+    "group": "branding",
+    "label": "Additional footer text",
+    "type": "text",
+    "default": "",
+    "max": 160
+  },
+  "login_welcome": {
+    "group": "login",
+    "label": "Show welcome panel",
+    "type": "boolean",
+    "default": true
+  }
+}

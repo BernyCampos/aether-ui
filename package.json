@@ -1,0 +1,9 @@
+{
+  "name": "aether-ui",
+  "private": true,
+  "version": "0.2.2",
+  "scripts": {
+    "test": "node --test tests/runtime.test.cjs",
+    "check": "node --check resources/js/aether.js"
+  }
+}
