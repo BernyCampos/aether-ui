@@ -8,5 +8,6 @@
   "namespace": "Aether\\UI",
   "class": "AetherUiPlugin",
   "panel_version": "1.0.0-rc.2",
+  "update_url": "https://hub.pelican.dev/plugins/aether-ui/update.json",
   "api_version": 1
 }
