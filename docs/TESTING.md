@@ -1,8 +1,8 @@
 # Testing
 
-Release 0.2.2, October 29, 2026.
+Release 0.2.3, October 29, 2026.
 
-For 0.2.2, 44 native integration checks passed, including scoped table configuration for ListFiles and SearchFiles. In Chrome, 144 layout and menu checks passed against rendered Filament table components with their native Livewire styles and client scripts. The fixtures cover file rows, long filenames, empty tickets and populated tickets at 320, 390, 768, 1024, 1440, 1920 and 3080 px, with 16 and 20 px text. Checks measure horizontal overflow, row height, inline actions and header height, and file-menu placement and closing; no client exceptions were observed. These are isolated component fixtures, not a connected Wings file manager or an installed third-party Tickets plugin. The full installation lifecycle was not repeated for 0.2.2.
+For 0.2.3, 44 native integration checks passed, including scoped table configuration for ListFiles and SearchFiles. In Chrome, 144 layout and menu checks passed against rendered Filament table components with their native Livewire styles and client scripts. The fixtures cover file rows, long filenames, empty tickets and populated tickets at 320, 390, 768, 1024, 1440, 1920 and 3080 px, with 16 and 20 px text. Checks measure horizontal overflow, row height, inline actions and header height, and file-menu placement and closing; no client exceptions were observed. These are isolated component fixtures, not a connected Wings file manager or an installed third-party Tickets plugin. The full installation lifecycle was not repeated for 0.2.3.
 
 The 0.2.1 visual patch was checked in Chrome with the actual Pelican xterm bundle at 800 and 280 px. The console container and padding use the configured background, the outer outline is absent, and the visible screen remains within its container. The earlier full integration and lifecycle results below refer to 0.2.0; that full sequence was not repeated for this CSS patch. No production deployment was performed.
 
