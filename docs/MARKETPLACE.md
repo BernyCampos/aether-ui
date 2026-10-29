@@ -3,7 +3,7 @@
 **Name:** Aether UI  
 **Author:** BernyC  
 **Category:** Theme  
-**Version:** 0.2.2  
+**Version:** 0.2.3  
 **License:** MIT
 
 ## Description
