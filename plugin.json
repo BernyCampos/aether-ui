@@ -2,7 +2,7 @@
   "id": "aether-ui",
   "name": "Aether UI",
   "author": "BernyC",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Customizable light and dark theme with persistent design controls for Pelican Panel.",
   "category": "theme",
   "namespace": "Aether\\UI",

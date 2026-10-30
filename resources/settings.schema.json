@@ -26,37 +26,37 @@
     "group": "colors",
     "label": "Primary",
     "type": "color",
-    "default": "#7c3aed"
+    "default": "#FF6B00"
   },
   "secondary": {
     "group": "colors",
     "label": "Secondary accent",
     "type": "color",
-    "default": "#0891b2"
+    "default": "#D6FF3F"
   },
   "success": {
     "group": "colors",
     "label": "Success",
     "type": "color",
-    "default": "#15803d"
+    "default": "#84CC16"
   },
   "warning": {
     "group": "colors",
     "label": "Warning",
     "type": "color",
-    "default": "#b45309"
+    "default": "#FFC247"
   },
   "danger": {
     "group": "colors",
     "label": "Danger",
     "type": "color",
-    "default": "#dc2626"
+    "default": "#FF4545"
   },
   "info": {
     "group": "colors",
     "label": "Information",
     "type": "color",
-    "default": "#2563eb"
+    "default": "#B5C2CC"
   },
   "light_background": {
     "group": "light_palette",
@@ -92,37 +92,37 @@
     "group": "dark_palette",
     "label": "Background",
     "type": "color",
-    "default": "#0b1020"
+    "default": "#171717"
   },
   "dark_surface": {
     "group": "dark_palette",
     "label": "Surface",
     "type": "color",
-    "default": "#141c30"
+    "default": "#121212"
   },
   "dark_text": {
     "group": "dark_palette",
     "label": "Text",
     "type": "color",
-    "default": "#edf1ff"
+    "default": "#F5F5F0"
   },
   "dark_muted": {
     "group": "dark_palette",
     "label": "Secondary text",
     "type": "color",
-    "default": "#aab6cf"
+    "default": "#AAA79F"
   },
   "dark_border": {
     "group": "dark_palette",
     "label": "Border",
     "type": "color",
-    "default": "#2d3952"
+    "default": "#383530"
   },
   "font": {
     "group": "typography",
     "label": "Interface font",
     "type": "enum",
-    "default": "system",
+    "default": "inter",
     "options": {
       "system": "System",
       "inter": "Inter (included with Pelican)",
@@ -157,7 +157,7 @@
     "group": "typography",
     "label": "Line height (%)",
     "type": "integer",
-    "default": 150,
+    "default": 120,
     "min": 120,
     "max": 190
   },
@@ -165,7 +165,7 @@
     "group": "geometry",
     "label": "Page spacing (px)",
     "type": "integer",
-    "default": 24,
+    "default": 12,
     "min": 12,
     "max": 40
   },
@@ -173,7 +173,7 @@
     "group": "geometry",
     "label": "Card radius (px)",
     "type": "integer",
-    "default": 18,
+    "default": 10,
     "min": 0,
     "max": 32
   },
@@ -181,7 +181,7 @@
     "group": "geometry",
     "label": "Control radius (px)",
     "type": "integer",
-    "default": 10,
+    "default": 6,
     "min": 0,
     "max": 24
   },
@@ -189,7 +189,7 @@
     "group": "geometry",
     "label": "Content width",
     "type": "enum",
-    "default": "screen-2xl",
+    "default": "full",
     "options": {
       "screen-xl": "XL",
       "screen-2xl": "2XL",
@@ -200,7 +200,7 @@
     "group": "geometry",
     "label": "Border width (px)",
     "type": "integer",
-    "default": 1,
+    "default": 3,
     "min": 0,
     "max": 3
   },
@@ -257,7 +257,7 @@
     "group": "navigation",
     "label": "Sidebar width (px)",
     "type": "integer",
-    "default": 260,
+    "default": 256,
     "min": 220,
     "max": 360
   },
@@ -316,7 +316,7 @@
     "group": "console_colors",
     "label": "Background",
     "type": "color",
-    "default": "#0b1020"
+    "default": "#121212"
   },
   "console_foreground": {
     "group": "console_colors",
@@ -506,14 +506,14 @@
     "group": "login",
     "label": "Welcome title",
     "type": "text",
-    "default": "",
+    "default": "Tu universo, bajo control.",
     "max": 100
   },
   "login_message": {
     "group": "login",
     "label": "Welcome message",
     "type": "text",
-    "default": "",
+    "default": "Un espacio para crear, administrar y hacer crecer tus servidores.",
     "max": 300
   },
   "login_image": {
