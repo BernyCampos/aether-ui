@@ -1,5 +1,9 @@
 # Testing
 
+## 0.3.0 native switcher checks
+
+The new release adds automated contract, Vite entry, scoped hook, responsive table isolation and legacy-settings preservation checks. The historical tests below were performed against Pelican rc.2 and do **not** establish rc.3 runtime validation. Staging tests of switching, forced themes, all three panel layouts and update lifecycle are still pending.
+
 Release 0.2.3, October 29, 2026.
 
 For 0.2.3, 44 native integration checks passed, including scoped table configuration for ListFiles and SearchFiles. In Chrome, 144 layout and menu checks passed against rendered Filament table components with their native Livewire styles and client scripts. The fixtures cover file rows, long filenames, empty tickets and populated tickets at 320, 390, 768, 1024, 1440, 1920 and 3080 px, with 16 and 20 px text. Checks measure horizontal overflow, row height, inline actions and header height, and file-menu placement and closing; no client exceptions were observed. These are isolated component fixtures, not a connected Wings file manager or an installed third-party Tickets plugin. The full installation lifecycle was not repeated for 0.2.3.

@@ -29,7 +29,7 @@ jobs:
         working-directory: aether-ui
         run: |
           find src database -type f -name '*.php' -print0 | xargs -0 -n1 php -l
-      - run: node --test tests/runtime.test.cjs
+      - run: node --test tests/runtime.test.cjs tests/theme-switcher.test.cjs
         working-directory: aether-ui
       - run: python tools/package.py
         working-directory: aether-ui

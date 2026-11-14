@@ -1,30 +1,25 @@
-# Aether UI 0.2.3
+# Aether UI 0.3.0 — Native Theme Switcher
 
-Aether UI is a customizable light and dark theme for Pelican Panel, created by BernyC. Adjust colors, typography, spacing, corners, effects, navigation, server cards, console appearance and login branding through 82 persistent settings. It installs as a native theme plugin without modifying Pelican's core files.
+Aether UI has been updated for the built-in theme picker in Pelican Panel. The plugin implements the official \`App\Contracts\Plugins\HasTheme\` contract, so its CSS, validated colors, design tokens, welcome screen, footer and native console preferences are active only while Aether is the selected theme.
 
-This release keeps file browsing and search in compact rows with inline actions, aligns file metadata, and prevents table headers from breaking into individual letters. Dense tables adapt to narrow screens. English and Spanish interface text follows the active Pelican language, with English fallback for other locales.
+## Changes
 
-**Compatibility:** Pelican Panel 1.0.0-rc.2, plugin API 1. **License:** MIT.
+- Native per-user theme selection, with Pelican support for administrator defaults and forced themes.
+- Vite stylesheet loaded by the official theme contract, without duplicate inline CSS.
+- Shared Filament mode, navigation, content width, brand logo and font-provider overrides removed.
+- Responsive native tables scoped to Aether only.
+- Existing appearance settings retained; old global controls hidden instead of presented as working switches.
+- Livewire navigation and console refresh safety checks.
+- Tests, manifest and documentation updated; no new database migrations or Pelican core modifications.
 
-## Download and install
+## Requirements
 
-Download `aether-ui-0.2.2.zip`, import it in **Admin → Plugins**, complete installation or the update action, and enable Aether UI. Disable other appearance themes, let Pelican finish building assets, and hard-refresh the browser. Existing Aether settings are kept. Back up the panel and export settings before updating.
+**Pelican Panel 1.0.0-rc.3**, plugin API 1, and a supported PHP/Node environment. Do not install this release on rc.2. Aether UI 0.2.4 remains available for older panels.
 
-The `-source.zip` archive and GitHub's automatic source archives are for development. `SHA256SUMS.txt` contains checksums for both packaged archives.
+## Download
 
-## Installation troubleshooting
+Use \`aether-ui-0.3.0.zip\` to install Aether through the panel or Hub. \`aether-ui-0.3.0-source.zip\` is for source review. The release includes \`SHA256SUMS.txt\`.
 
-- **ZIP or compatibility error:** use the install ZIP and confirm Pelican 1.0.0-rc.2/API 1; do not bypass compatibility by editing the manifest.
-- **Build failure or unchanged styles:** check the panel's Node/Yarn environment and build error, correct ownership or missing dependencies, retry the native installation, and refresh cached assets.
-- **Settings do not save:** the PHP worker must be able to write `storage/app/aether-ui`, its lock file and temporary files. Avoid world-writable permissions.
-- **HTTP 500 / JSON syntax error:** identify the failing file in the trace. Restore a malformed plugin manifest from its trusted release or restore an Aether settings backup. Leftover directories from other plugins can still be discovered.
-- **Memory exhausted in panel logs:** preserve and rotate oversized logs, fix recurring errors and review the web worker's PHP-FPM memory limit against available RAM.
-- **Language or mode mismatch:** check the user's Pelican locale and saved appearance preference. Custom branding text stays as entered; unsupported Aether locales use English.
+## Testing
 
-See the [full installation and troubleshooting guide](https://github.com/BernyCampos/aether-ui/blob/main/docs/TROUBLESHOOTING.md) for recovery commands and reporting an issue.
-
-## Validation
-
-The local Pelican rc.2/Filament 5.10.2 fixture passed 44 integration checks. Chrome passed 144 table layout and menu checks at seven widths from 320 to 3080 px with two text sizes. PHP syntax and 12 JavaScript tests passed. GitHub Actions runs standalone validation on PHP 8.4 and 8.5 before publishing these archives.
-
-Live Wings operations, production deployment, all third-party plugins, Safari and Firefox have not been verified. The full native installation lifecycle was exercised for 0.2.0 and was not repeated for 0.2.2. See the [test report](https://github.com/BernyCampos/aether-ui/blob/main/docs/TESTING.md) for details. Pelican Hub approval is separate from this GitHub release.
+GitHub Actions checks PHP 8.4 and 8.5 syntax, Node.js runtime and selector-contract tests, and deterministic packaging. Live rc.3 staging tests of selection, default/forced themes, panel layout, existing settings, installation and updates are still recommended. The older rc.2 full integration results are not presented as rc.3 validation.

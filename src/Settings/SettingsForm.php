@@ -14,10 +14,21 @@ use Filament\Schemas\Components\Section;
 
 final class SettingsForm
 {
+    // Pelican controls the native theme picker and shared Filament layout.
+    // Preserve old values on upgrade without exposing inert settings fields.
+    private const PANEL_MANAGED = [
+        'enabled', 'mode', 'lock_mode', 'content_width', 'navigation',
+        'sidebar_width', 'sidebar_collapsible', 'brand_logo',
+        'brand_logo_dark', 'brand_favicon', 'brand_logo_height',
+    ];
+
     public static function make(): array
     {
         $groups = [];
         foreach (ThemeSettings::schema() as $key => $field) {
+            if (in_array($key, self::PANEL_MANAGED, true)) {
+                continue;
+            }
             $component = match ($field['type']) {
                 'boolean' => Toggle::make($key)->inline(false),
                 'enum' => Select::make($key)->options(array_combine(array_keys($field['options']), array_map(fn (string $option) => Localization::text("options.$key.$option"), array_keys($field['options']))))->required()->native(),
