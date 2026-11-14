@@ -74,7 +74,8 @@ final class Theme
         $theme['selectionBackground'] = $s['console_selection'];
 
         return [
-            'enabled' => $s['enabled'],
+            // Invoked only from the active Aether theme hook.
+            'enabled' => true,
             'loginLayout' => $s['login_layout'],
             'consoleEnabled' => $s['console_enabled'],
             'terminal' => [

@@ -1,9 +1,9 @@
 {
   "name": "aether-ui",
   "private": true,
-  "version": "0.2.3",
+  "version": "0.3.0",
   "scripts": {
-    "test": "node --test tests/runtime.test.cjs",
+    "test": "node --test tests/runtime.test.cjs tests/theme-switcher.test.cjs",
     "check": "node --check resources/js/aether.js"
   }
 }

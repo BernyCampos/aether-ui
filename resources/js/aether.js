@@ -48,7 +48,7 @@
         }
         class AetherTerminal extends Original {
             constructor(originalOptions = {}) {
-                const active = config.enabled && config.consoleEnabled;
+                const active = activeTheme() && config.consoleEnabled;
                 super(active ? { ...originalOptions, ...options(), theme: { ...originalOptions.theme, ...options().theme } } : originalOptions);
                 this.aetherOriginalOptions = { ...originalOptions, theme: { ...originalOptions.theme } };
             }
@@ -80,9 +80,14 @@
         return api;
     }
 
+    function activeTheme() {
+        return !!config.enabled && (typeof root.document?.querySelector !== 'function'
+            || !!root.document.querySelector('meta[name="aether-ui-active"]'));
+    }
+
     function update() {
         const html = root.document?.documentElement;
-        html?.classList.toggle('aether-ui', !!config.enabled);
+        html?.classList.toggle('aether-ui', activeTheme());
         if (html) {
             html.dataset.aetherLogin = config.loginLayout === 'split' ? 'split' : 'centered';
             html.dataset.aetherConsole = config.consoleEnabled ? 'on' : 'off';
@@ -95,7 +100,7 @@
                 continue;
             }
             try {
-                const next = config.enabled && config.consoleEnabled ? options() : terminal.aetherOriginalOptions;
+                const next = activeTheme() && config.consoleEnabled ? options() : terminal.aetherOriginalOptions;
                 const { rows, ...runtime } = next;
                 terminal.options = { ...runtime, theme: { ...terminal.aetherOriginalOptions.theme, ...runtime.theme } };
                 fit(terminal);
@@ -124,6 +129,6 @@
             config = { ...config, ...next };
             update();
         },
-        version: '0.2.2',
+        version: '0.3.0',
     });
 })(window);
