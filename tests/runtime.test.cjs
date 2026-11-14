@@ -151,3 +151,25 @@ test('detaching a console disconnects its resize observer on navigation', () => 
     f.listeners['livewire:navigated'][0]();
     assert.equal(disconnected, true);
 });
+
+
+test('native theme switcher disables Aether styles and restores terminal options on navigation', () => {
+    const f = fixture({ existing: true });
+    let selected = true;
+    f.window.document.querySelector = () => selected ? {} : null;
+    f.mount();
+    assert.equal(f.classes.has('aether-ui'), true);
+    const terminal = new f.window.Xterm.Terminal({ fontSize: 11, theme: { background: '#ffffff' } });
+    const element = { id: 'terminal', isConnected: true };
+    terminal.open(element);
+    assert.equal(terminal.options.fontSize, 17);
+    selected = false;
+    f.listeners['livewire:navigated'][0]();
+    assert.equal(f.classes.has('aether-ui'), false);
+    assert.equal(terminal.options.fontSize, 11);
+    assert.equal(terminal.options.theme.background, '#ffffff');
+    selected = true;
+    f.listeners['livewire:navigated'][0]();
+    assert.equal(f.classes.has('aether-ui'), true);
+    assert.equal(terminal.options.fontSize, 17);
+});
