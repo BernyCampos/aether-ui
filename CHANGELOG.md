@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.0 — Native Pelican theme switcher
+
+- Implement the official HasTheme contract for Pelican Panel 1.0.0-rc.3.
+- Apply Vite CSS, color palette, design tokens, login welcome, footer, and console behavior only while Aether is selected.
+- Remove global Filament layout, theme mode, sidebar, branding, and font overrides that would affect other themes.
+- Apply responsive table customization only while Aether is selected.
+- Retain existing settings, hide nonfunctional legacy controls, and preserve terminal behavior during Livewire navigation.
+- Update automated tests and version/compatibility metadata; no new migrations or Pelican core changes.
+
+## 0.2.4
+
+- Packaging release for Pelican Hub distribution.
+
 ## 0.2.2
 
 - Keep file browsing and file search in compact rows with inline actions.

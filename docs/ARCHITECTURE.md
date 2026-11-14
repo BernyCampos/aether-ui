@@ -1,13 +1,13 @@
 # Architecture
 
-`plugin.json` declares a theme plugin for API 1. Pelican discovers the main plugin class, service provider, translation catalogs and console command through its plugin loader.
+Aether UI 0.3.0 integrates through Pelican's official \`App\Contracts\Plugins\HasTheme\` interface introduced in Panel 1.0.0-rc.3. It retains plugin ID \`aether-ui\`, API version 1 and category \`theme\`.
 
-`ThemeSettings` validates the shared schema. `SettingsForm` builds native Filament controls. `SettingsStore` writes a versioned JSON envelope using a lock, temporary file and atomic rename. Invalid saves leave the previous file intact. Reads recover invalid individual fields with defaults; unreadable or corrupt envelopes are reported and the panel renders defaults. Concurrent saves use last-write-wins behavior.
+The plugin's \`register()\` does not modify global Filament layout, color mode, branding or assets. \`getThemeViteEntry()\` exposes \`plugins/aether-ui/resources/css/aether.css\` for Pelican's Vite build; \`getThemeColors()\` exposes validated palette values. \`getThemeFont()\` returns null because Aether fonts are applied through its scoped CSS tokens.
 
-`AetherUiPlugin` registers native colors, fonts, navigation and branding, plus scoped styles and render hooks. `AetherUiServiceProvider` enables Filament's native stacked-table markup while the theme is active. CSS uses the table container width to choose a readable record layout without removing columns. Native ListFiles and SearchFiles pages receive a scoped class and keep their row layout, inline actions and existing mobile column visibility. Header text wraps only where a component explicitly requests it.
+\`getThemeRenderHooks()\` provides the design tokens, browser terminal adapter, welcome display and optional footer. Pelican's ThemeService gates them so they render only while Aether is the active user/default/forced theme. The script uses a head marker for Livewire navigation to stop applying the Aether document class when the user leaves Aether. The native console, Wings connections and authentication remain unchanged.
 
-`Localization` resolves the active request locale, its base language and English fallback. Custom content remains unchanged. Stock welcome text from the first release migrates to automatic translation.
+\`AetherUiServiceProvider\` adds responsive native Filament table behavior only when \`ThemeService::isActive('aether-ui')\` is true. It keeps ListFiles and SearchFiles dense without hiding their original operations.
 
-The browser adapter wraps Pelican's exposed xterm Terminal and FitAddon classes. Public terminal options control appearance; ResizeObserver and font events request fitting. Disposal removes observers. The adapter does not replace server connections, command handlers or authentication.
+\`ThemeSettings\` validates settings through the existing schema. \`SettingsStore\` preserves current storage behavior and legacy values, including the existing database table when present and JSON fallback. On save, non-displayed legacy values are merged with existing settings; removed global controls cannot silently reset previously saved information. No new migrations, direct core patches or custom installation scripts are introduced.
 
-No database migrations, core view replacements, telemetry or external script services are included. Images and font URLs configured by an administrator may cause browser requests to those hosts.
+\`Localization\` uses Pelican's active locale with English fallback. The Xterm adapter modifies only presentation options and maintains native fitting and cleanup.

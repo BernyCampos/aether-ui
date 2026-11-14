@@ -1,18 +1,16 @@
 # Compatibility
 
-| Component | Verified baseline |
+| Component | Release target |
 | --- | --- |
-| Pelican Panel | 1.0.0-rc.2 |
+| Pelican Panel | 1.0.0-rc.3 |
+| Theme interface | App\Contracts\Plugins\HasTheme |
 | Plugin API | 1 |
-| Filament | 5.10.2 from the Pelican lockfile |
-| PHP | 8.4.27 on Windows |
-| Browser | Chrome / Chromium |
-| Terminal | xterm 6 and native FitAddon |
+| PHP | 8.4 / 8.5 (CI syntax checks) |
+| Browser | Modern Chromium |
+| Terminal | Pelican native xterm and FitAddon |
 
-The manifest intentionally pins the tested panel release. Recheck plugin loading, Filament markup and the exposed `window.Xterm` API before widening this constraint.
+**Aether UI 0.3.0 requires Pelican 1.0.0-rc.3.** Older rc.2 panels do not expose HasTheme; the previous release 0.2.4 remains available for those installations.
 
-Use one active appearance theme. Third-party plugins may supply their own fixed-width layouts or styles and need separate testing. Very dense tables may use more vertical space to keep every field and action available.
+With the native picker, other switchable theme plugins can remain enabled. Aether CSS, hooks, colors and Filament table customizations apply only while selected. Global mode, lock, navigation layout, panel size and brand logo controls cannot be safely scoped to individual users, so they have been hidden and disabled without deleting the corresponding legacy saved values.
 
-English and Spanish catalogs are bundled. Regional variants use the matching base language; missing translations fall back to English. Add `lang/<locale>/ui.php` using the English catalog structure for more languages.
-
-The theme preserves Pelican permissions and authentication. Live Wings connections, real server power operations, MFA flows, Safari, Firefox and production Linux workers require additional validation. The GitHub workflow includes PHP 8.5, but that job has not been run locally.
+The repository's earlier native integration results targeted rc.2. Live rc.3 switching, default/forced themes, admin/app/server layout regressions, upgrade and removal, third-party plugins, Safari/Firefox and Wings require additional staging validation before production use.
