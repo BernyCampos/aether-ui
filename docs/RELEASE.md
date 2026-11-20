@@ -1,25 +1,33 @@
-# Aether UI 0.3.0 — Native Theme Switcher
+# Aether UI v0.4.0 — Atmosphere
 
-Aether UI has been updated for the built-in theme picker in Pelican Panel. The plugin implements the official \`App\Contracts\Plugins\HasTheme\` contract, so its CSS, validated colors, design tokens, welcome screen, footer and native console preferences are active only while Aether is the selected theme.
+**Pelican Panel:** `1.0.0-rc.4` (strict manifest requirement)  
+**Plugin ID:** `aether-ui`  
+**Category:** `theme` · **API:** 1 · **License:** MIT
 
-## Changes
+## What's new
 
-- Native per-user theme selection, with Pelican support for administrator defaults and forced themes.
-- Vite stylesheet loaded by the official theme contract, without duplicate inline CSS.
-- Shared Filament mode, navigation, content width, brand logo and font-provider overrides removed.
-- Responsive native tables scoped to Aether only.
-- Existing appearance settings retained; old global controls hidden instead of presented as working switches.
-- Livewire navigation and console refresh safety checks.
-- Tests, manifest and documentation updated; no new database migrations or Pelican core modifications.
+- **Aether Atmosphere:** original local background inspired by the upper sky, with pearl, ice-blue and muted lavender palettes.
+- **Refined glass:** softly blurred, lightly translucent cards, inputs, modal surfaces, navigation and tables, with fine borders and restrained shadows.
+- **Optional particles:** two slow CSS-only layers of atmospheric dust, with toggles for on/off and brightness. Reduced-motion, reduced-transparency and forced-color preferences are supported.
+- **Native Pelican selector:** the official `App\Contracts\Plugins\HasTheme` integration loads styles and render hooks only while Aether is active.
+- **Native UI:** Filament controls, file operations, console power actions, Livewire behavior and the xterm terminal are not replaced or patched.
+- **Preserved settings:** existing saved settings remain intact, with Atmosphere defaults for clean installs and an opt-in `presets/atmosphere.json` for existing users.
+- **Real screenshots:** updated [Screenshots](SCREENSHOTS.md) gallery and README hero from the running panel, showing Servers, Files, Console and Settings.
 
-## Requirements
+## Screenshots
 
-**Pelican Panel 1.0.0-rc.3**, plugin API 1, and a supported PHP/Node environment. Do not install this release on rc.2. Aether UI 0.2.4 remains available for older panels.
+![Aether Atmosphere, server list on a real Pelican Panel](screenshots/aether-servers.webp)
 
-## Download
+[Browse all four real panel screenshots](SCREENSHOTS.md).
 
-Use \`aether-ui-0.3.0.zip\` to install Aether through the panel or Hub. \`aether-ui-0.3.0-source.zip\` is for source review. The release includes \`SHA256SUMS.txt\`.
+## Installation and compatibility
 
-## Testing
+Download `aether-ui-0.4.0.zip`, import through **Administration → Plugins**, install or upgrade using Pelican's normal workflow and select Aether from the built-in theme picker. Pelican must be **exactly `1.0.0-rc.4`** for this manifest. Do not change Pelican core files or manually override plugin compatibility. The `-source.zip` archive is for development, not installation.
 
-GitHub Actions checks PHP 8.4 and 8.5 syntax, Node.js runtime and selector-contract tests, and deterministic packaging. Live rc.3 staging tests of selection, default/forced themes, panel layout, existing settings, installation and updates are still recommended. The older rc.2 full integration results are not presented as rc.3 validation.
+Users on rc.3 should keep Aether 0.3.0; on rc.2, keep Aether 0.2.4. Back up the panel and export existing plugin preferences before upgrading. Existing preferences are not reset by this release.
+
+## Verification and limitations
+
+The local release checks PHP 8.4 syntax, Node.js runtime and theme-selector tests, JS syntax, packaging and SHA-256 archive integrity. The supplied real dark-mode screenshots demonstrate rendering in the app, server and admin panel; they do **not** establish a complete production audit of authentication, all responsive breakpoints, light mode, plugin interoperability, remote Wings actions or fresh-install/upgrade/uninstall lifecycle. Check those paths on an isolated rc.4 staging panel before broad rollout.
+
+GitHub Releases and Pelican Hub Marketplace publication are separate actions. No Pelican Hub submission or approval is implied.

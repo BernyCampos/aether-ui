@@ -53,6 +53,8 @@ return [
         'blur' => 'Desenfoque (px)',
         'gradient' => 'Luz ambiental en fondo',
         'motion' => 'Transiciones (respeta reducir movimiento)',
+        'particles' => 'Partículas etéreas animadas',
+        'particle_intensity' => 'Brillo de partículas (%)',
         'navigation' => 'Distribución (admin y servidor)',
         'sidebar_width' => 'Ancho lateral (px)',
         'sidebar_collapsible' => 'Permitir contraer barra lateral',
