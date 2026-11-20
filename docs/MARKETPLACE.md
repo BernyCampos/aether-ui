@@ -3,26 +3,26 @@
 **Name:** Aether UI  
 **Author:** BernyC  
 **Category:** Theme  
-**Version:** 0.3.0  
+**Version:** 0.4.0  
 **License:** MIT
 
 ## Description
 
-Aether UI is a customizable light and dark theme for Pelican Panel, created by BernyC. Adjust colors, typography, spacing, corners, effects, server cards, console appearance and login branding through persistent appearance settings. It installs as a native theme plugin without modifying Pelican's core files.
+Aether UI Atmosphere is a customizable light and dark theme for Pelican Panel, created by BernyC. Its celestial-inspired design combines a calm atmospheric wallpaper, light glass cards, an accessible terminal, and subtle optional animated particles. Adjust colors, typography, spacing, corners, effects, server cards, console appearance and login branding through persistent appearance settings. It installs as a native theme plugin without modifying Pelican's core files.
 
 This release keeps file browsing and search in compact rows with inline actions, aligns file metadata, and prevents table headers from breaking into individual letters. Dense tables adapt to narrow screens. English and Spanish interface text follows the active Pelican language, with English fallback for other locales.
 
-**Compatibility:** Pelican Panel 1.0.0-rc.3, plugin API 1. **License:** MIT.
+**Compatibility:** Pelican Panel 1.0.0-rc.4, plugin API 1. **License:** MIT.
 
 ## Download and install
 
-Download `aether-ui-0.3.0.zip`, import it in **Admin → Plugins**, complete installation or the update action, and enable Aether UI. Select Aether in the new native theme picker, let Pelican finish building assets, and hard-refresh the browser. Existing Aether settings are kept. Back up the panel and export settings before updating.
+Download `aether-ui-0.4.0.zip`, import it in **Admin → Plugins**, complete installation or the update action, and enable Aether UI. Select Aether in the new native theme picker, let Pelican finish building assets, and hard-refresh the browser. Existing Aether settings are kept. Back up the panel and export settings before updating.
 
 The `-source.zip` archive and GitHub's automatic source archives are for development. `SHA256SUMS.txt` contains checksums for both packaged archives.
 
 ## Installation troubleshooting
 
-- **ZIP or compatibility error:** use the install ZIP and confirm Pelican 1.0.0-rc.3/API 1; do not bypass compatibility by editing the manifest.
+- **ZIP or compatibility error:** use the install ZIP and confirm Pelican 1.0.0-rc.4/API 1; do not bypass compatibility by editing the manifest.
 - **Build failure or unchanged styles:** check the panel's Node/Yarn environment and build error, correct ownership or missing dependencies, retry the native installation, and refresh cached assets.
 - **Settings do not save:** the PHP worker must be able to write `storage/app/aether-ui`, its lock file and temporary files. Avoid world-writable permissions.
 - **HTTP 500 / JSON syntax error:** identify the failing file in the trace. Restore a malformed plugin manifest from its trusted release or restore an Aether settings backup. Leftover directories from other plugins can still be discovered.
@@ -36,6 +36,7 @@ See the [full installation and troubleshooting guide](https://github.com/BernyCa
 - Repository: https://github.com/BernyCampos/aether-ui
 - Downloads: https://github.com/BernyCampos/aether-ui/releases/latest
 - Support: https://github.com/BernyCampos/aether-ui/issues
-- Use the actual isolated panel screenshots named docs/pelican-*.png. Images named preview-*.png are illustrative mockups; layout-*.png images are native component fixtures. Label them accordingly.
+- Use the four **real Pelican screenshots** in [`docs/screenshots/`](SCREENSHOTS.md) for the Marketplace gallery: Servers, Files, Console and Settings.
+- Historical `docs/design-review/preview-*.png` images are **conceptual mockups** and must not be presented as actual Pelican screenshots. Older `layout-*.png` files are component fixtures.
 
 Review the current [Pelican Hub](https://hub.pelican.dev/) submission requirements before publishing. Marketplace publication/approval is separate from GitHub Releases and has not been verified for this version.

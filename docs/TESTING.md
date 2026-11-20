@@ -1,5 +1,14 @@
 # Testing
 
+## Aether UI v0.4.0 — Atmosphere on rc.4
+
+The v0.4.0 release is based on the successfully rendered Atmosphere beta.2 and four user-provided screenshots from a running Pelican rc.4 panel (Servers, Files, Console, plugin Settings). Files are in `docs/screenshots/`, with the provenance explained in `docs/SCREENSHOTS.md`. These captures verify the pictured dark-mode pages, **not** all functionality of a server, mobile access, light mode, or the full installation/upgrade/uninstall lifecycle.
+
+Standalone release tests: `node --test tests/runtime.test.cjs tests/theme-switcher.test.cjs`, `node --check resources/js/aether.js`, `find src -name "*.php" -print0 | xargs -0 -n1 php -l`, and `python tools/package.py`. Install/source archives are checked via SHA-256 and ZIP integrity.
+
+Some older commands and test counts below document historical rc.2 validation infrastructure rather than files shipped in v0.4.0. They are not current release procedures.
+
+
 ## 0.3.0 native switcher checks
 
 The new release adds automated contract, Vite entry, scoped hook, responsive table isolation and legacy-settings preservation checks. The historical tests below were performed against Pelican rc.2 and do **not** establish rc.3 runtime validation. Staging tests of switching, forced themes, all three panel layouts and update lifecycle are still pending.

@@ -26,97 +26,97 @@
     "group": "colors",
     "label": "Primary",
     "type": "color",
-    "default": "#FF6B00"
+    "default": "#98C9DB"
   },
   "secondary": {
     "group": "colors",
     "label": "Secondary accent",
     "type": "color",
-    "default": "#D6FF3F"
+    "default": "#B9B1D8"
   },
   "success": {
     "group": "colors",
     "label": "Success",
     "type": "color",
-    "default": "#84CC16"
+    "default": "#8DC9AE"
   },
   "warning": {
     "group": "colors",
     "label": "Warning",
     "type": "color",
-    "default": "#FFC247"
+    "default": "#DFC28F"
   },
   "danger": {
     "group": "colors",
     "label": "Danger",
     "type": "color",
-    "default": "#FF4545"
+    "default": "#E9A5A4"
   },
   "info": {
     "group": "colors",
     "label": "Information",
     "type": "color",
-    "default": "#B5C2CC"
+    "default": "#8CBACF"
   },
   "light_background": {
     "group": "light_palette",
     "label": "Background",
     "type": "color",
-    "default": "#f4f5fb"
+    "default": "#EEF3F6"
   },
   "light_surface": {
     "group": "light_palette",
     "label": "Surface",
     "type": "color",
-    "default": "#ffffff"
+    "default": "#FFFFFF"
   },
   "light_text": {
     "group": "light_palette",
     "label": "Text",
     "type": "color",
-    "default": "#182033"
+    "default": "#243749"
   },
   "light_muted": {
     "group": "light_palette",
     "label": "Secondary text",
     "type": "color",
-    "default": "#526078"
+    "default": "#5A7184"
   },
   "light_border": {
     "group": "light_palette",
     "label": "Border",
     "type": "color",
-    "default": "#dce1ec"
+    "default": "#C9D9E3"
   },
   "dark_background": {
     "group": "dark_palette",
     "label": "Background",
     "type": "color",
-    "default": "#171717"
+    "default": "#0D1827"
   },
   "dark_surface": {
     "group": "dark_palette",
     "label": "Surface",
     "type": "color",
-    "default": "#121212"
+    "default": "#1B2B3E"
   },
   "dark_text": {
     "group": "dark_palette",
     "label": "Text",
     "type": "color",
-    "default": "#F5F5F0"
+    "default": "#EEF5F8"
   },
   "dark_muted": {
     "group": "dark_palette",
     "label": "Secondary text",
     "type": "color",
-    "default": "#AAA79F"
+    "default": "#AFC1CF"
   },
   "dark_border": {
     "group": "dark_palette",
     "label": "Border",
     "type": "color",
-    "default": "#383530"
+    "default": "#41586B"
   },
   "font": {
     "group": "typography",
@@ -149,7 +149,7 @@
     "group": "typography",
     "label": "Base font size (px)",
     "type": "integer",
-    "default": 16,
+    "default": 15,
     "min": 14,
     "max": 20
   },
@@ -157,7 +157,7 @@
     "group": "typography",
     "label": "Line height (%)",
     "type": "integer",
-    "default": 120,
+    "default": 150,
     "min": 120,
     "max": 190
   },
@@ -165,7 +165,7 @@
     "group": "geometry",
     "label": "Page spacing (px)",
     "type": "integer",
-    "default": 12,
+    "default": 24,
     "min": 12,
     "max": 40
   },
@@ -173,7 +173,7 @@
     "group": "geometry",
     "label": "Card radius (px)",
     "type": "integer",
-    "default": 10,
+    "default": 18,
     "min": 0,
     "max": 32
   },
@@ -181,7 +181,7 @@
     "group": "geometry",
     "label": "Control radius (px)",
     "type": "integer",
-    "default": 6,
+    "default": 12,
     "min": 0,
     "max": 24
   },
@@ -225,7 +225,7 @@
     "group": "effects",
     "label": "Blur (px)",
     "type": "integer",
-    "default": 16,
+    "default": 22,
     "min": 0,
     "max": 32
   },
@@ -240,6 +240,20 @@
     "label": "Transitions",
     "type": "boolean",
     "default": true
+  },
+  "particles": {
+    "group": "effects",
+    "label": "Aether particles",
+    "type": "boolean",
+    "default": true
+  },
+  "particle_intensity": {
+    "group": "effects",
+    "label": "Particle brightness (%)",
+    "type": "integer",
+    "min": 0,
+    "max": 100,
+    "default": 58
   },
   "navigation": {
     "group": "navigation",
@@ -271,7 +285,7 @@
     "group": "navigation",
     "label": "Navigation item radius (px)",
     "type": "integer",
-    "default": 10,
+    "default": 12,
     "min": 0,
     "max": 24
   },
@@ -296,7 +310,7 @@
     "group": "cards",
     "label": "Card padding (px)",
     "type": "integer",
-    "default": 24,
+    "default": 22,
     "min": 12,
     "max": 36
   },
@@ -316,25 +330,25 @@
     "group": "console_colors",
     "label": "Background",
     "type": "color",
-    "default": "#121212"
+    "default": "#0B1520"
   },
   "console_foreground": {
     "group": "console_colors",
     "label": "Text",
     "type": "color",
-    "default": "#e2e8f0"
+    "default": "#DCE9EF"
   },
   "console_cursor": {
     "group": "console_colors",
     "label": "Cursor",
     "type": "color",
-    "default": "#a78bfa"
+    "default": "#98C9DB"
   },
   "console_selection": {
     "group": "console_colors",
     "label": "Selection",
     "type": "color",
-    "default": "#45366e"
+    "default": "#2B5166"
   },
   "console_black": {
     "group": "console_colors",

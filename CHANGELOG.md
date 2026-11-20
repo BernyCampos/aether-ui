@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.4.0 — Aether Atmosphere (Pelican rc.4)
+
+- Pelican Panel v1.0.0-rc.4 compatibility target via the unchanged HasTheme contract.
+- Introduces Aether Atmosphere: pearl/cyan/lavender palettes, soft glass, native panel surfaces, atmospheric local artwork, animated floating particles, and more restrained controls.
+- Corrects the original body selector to `html.aether-ui body` so ambient colors are actually applied.
+- Keeps typography, tables, File Manager, native terminal actions and Filament styles intact.
+- Adds configurable particle brightness and an animation toggle; respects system reduced-motion, reduced-transparency and reduced-data preferences.
+- New installations use Atmosphere defaults; existing settings remain unchanged until the administrator applies the bundled Atmosphere preset.
+- All visual assets are local. Does not modify Pelican core, add migrations or force changed permissions.
+- Real panel screenshots supplied for Servers, Files, Console and Settings document dark-mode integration; additional production paths still require verification.
+- Refined the translucent cards, modal surfaces and inputs with restrained blur, soft borders and subtle elevation.
+- Updated README, Marketplace text, screenshot gallery and release notes for a stable 0.4.0 package. No panel-core changes.
+
 ## 0.3.0 — Native Pelican theme switcher
 
 - Implement the official HasTheme contract for Pelican Panel 1.0.0-rc.3.

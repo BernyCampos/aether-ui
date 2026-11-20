@@ -45,6 +45,15 @@ final class Theme
         $vars['ambient'] = $s['gradient']
             ? 'radial-gradient(ellipse at 90% 0%, color-mix(in srgb, var(--aether-primary) 12%, transparent), transparent 55%), radial-gradient(ellipse at 0% 80%, color-mix(in srgb, var(--aether-secondary) 8%, transparent), transparent 50%)'
             : 'none';
+        // An explicitly disabled ambient background also disables the bundled artwork.
+        // An enabled one uses a local asset resolved by Pelican's unchanged Vite pipeline.
+        if (!$s['gradient']) {
+            $vars['atmosphere-image'] = 'none';
+        }
+        // Particle layers use existing theme settings; no JS or extra assets.
+        // Reduced-motion and reduced-data preferences still override animation.
+        $vars['particle-opacity'] = $s['particles'] ? (string) ($s['particle_intensity'] / 100) : '0';
+        $vars['particle-play'] = $s['particles'] && $s['motion'] ? 'running' : 'paused';
         $vars['console-background'] = $s['console_background'];
         $vars['console-foreground'] = $s['console_foreground'];
         $vars['login-image'] = $s['login_image'] !== '' ? 'url("' . $s['login_image'] . '")' : 'none';

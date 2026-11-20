@@ -1,4 +1,4 @@
-<meta name="aether-ui-active" content="0.3.0">
+<meta name="aether-ui-active" content="0.4.0">
 <style id="aether-ui-tokens">{!! $tokens !!}</style>
 <script>
 {!! file_get_contents(plugin_path('aether-ui', 'resources/js/aether.js')) !!}

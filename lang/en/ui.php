@@ -53,6 +53,8 @@ return [
         'blur' => 'Blur (px)',
         'gradient' => 'Ambient background',
         'motion' => 'Transitions',
+        'particles' => 'Aether particles',
+        'particle_intensity' => 'Particle brightness (%)',
         'navigation' => 'Navigation layout',
         'sidebar_width' => 'Sidebar width (px)',
         'sidebar_collapsible' => 'Collapsible sidebar',

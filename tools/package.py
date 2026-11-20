@@ -6,7 +6,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED = {'.git', 'vendor', 'node_modules', 'dist', '__pycache__'}
-RUNTIME = {'src', 'resources', 'lang', 'docs', 'presets', 'plugin.json', 'README.md', 'LICENSE', 'CHANGELOG.md'}
+RUNTIME = {'src', 'resources', 'lang', 'presets', 'plugin.json', 'README.md', 'LICENSE', 'CHANGELOG.md'}
 
 
 def build(destination):

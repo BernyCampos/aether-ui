@@ -2,7 +2,7 @@
 html.aether-ui { font-size: var(--aether-font-size); }
 .aether-ui :is(.fi-layout, .fi-main-ctn, .fi-main, .fi-page, .fi-sc, .fi-sc-component, .fi-section, .fi-section-content, .fi-sc-tabs, .fi-sc-tabs-tab, .fi-ta, .fi-ta-ctn, .fi-modal-content, .fi-fo-field, .fi-input-wrp) { min-inline-size: 0; }
 .aether-ui :is(.fi-page, .fi-sc-tabs, .fi-section, .fi-ta-ctn) { max-inline-size: 100%; }
-.aether-ui body {
+html.aether-ui body {
     background-color: var(--aether-background);
     background-image: var(--aether-ambient);
     background-attachment: fixed;
@@ -203,3 +203,248 @@ html.aether-ui { font-size: var(--aether-font-size); }
     .aether-ui :is(.fi-section, .fi-simple-main, .fi-input-wrp, .fi-btn) { border: 1px solid CanvasText; }
     .aether-orbit { background: Canvas; color: CanvasText; border: 1px solid CanvasText; }
 }
+
+/* === AETHER ATMOSPHERE REVIEW LAYER START === */
+/* AETHER UI — Atmosphere design layer, review candidate.
+ * Append after the existing resources/css/aether.css only after review.
+ * All rules are scoped to the native-theme-active .aether-ui class.
+ * Filament, Livewire, xterm and native actions remain the source of truth.
+ */
+html.aether-ui {
+    /* The wallpaper URL is resolved and fingerprinted by Pelican's Vite build. */
+    --aether-atmosphere-image: url('../images/aether-atmosphere.webp');
+    --aether-haze: color-mix(in srgb, var(--aether-secondary) 15%, transparent);
+    --aether-veil: color-mix(in srgb, var(--aether-surface) 74%, transparent);
+    --aether-panel-fill: linear-gradient(180deg,
+        color-mix(in srgb, var(--aether-surface) 82%, transparent),
+        color-mix(in srgb, var(--aether-surface) 66%, transparent));
+    --aether-edge: color-mix(in srgb, var(--aether-border) 54%, transparent);
+    --aether-edge-strong: color-mix(in srgb, var(--aether-border) 72%, transparent);
+    --aether-panel-blur: clamp(16px, calc(var(--aether-blur) * .75), 24px);
+    --aether-elevation: 0 14px 40px rgba(3, 13, 28, .12);
+    --aether-elevation-hover: 0 18px 52px rgba(3, 13, 28, .16);
+    --aether-sheen: linear-gradient(152deg, color-mix(in srgb, var(--aether-text) 5%, transparent), transparent 56%);
+}
+
+/* Diffuse environmental lighting uses user-controlled --aether-ambient. */
+html.aether-ui body {
+    background-color: var(--aether-background);
+    background-image: var(--aether-ambient),
+        linear-gradient(155deg,
+            color-mix(in srgb, var(--aether-background) 88%, transparent),
+            color-mix(in srgb, var(--aether-background) 76%, transparent)),
+        var(--aether-atmosphere-image);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-rendering: optimizeLegibility;
+}
+
+/* Lightweight translucent shells; no layout replacement. */
+.aether-ui :is(.fi-sidebar, .fi-topbar, .fi-sidebar-header) {
+    background: color-mix(in srgb, var(--aether-surface) var(--aether-glass-opacity), transparent);
+    border-color: var(--aether-edge);
+    backdrop-filter: blur(var(--aether-blur)) saturate(115%);
+    -webkit-backdrop-filter: blur(var(--aether-blur)) saturate(115%);
+}
+
+.aether-ui :is(.fi-section, .fi-ta-ctn, .fi-wi-stats-overview-stat, .fi-simple-main,
+    .fi-sc-tabs.fi-contained, .fi-fieldset, .fi-small-stat-block) {
+    background: var(--aether-sheen), var(--aether-panel-fill);
+    border: 1px solid var(--aether-edge);
+    box-shadow:
+        var(--aether-elevation),
+        inset 0 1px 0 color-mix(in srgb, var(--aether-text) 7%, transparent),
+        inset 0 -1px 0 color-mix(in srgb, var(--aether-background) 14%, transparent);
+    border-radius: calc(var(--aether-radius) - 2px);
+    backdrop-filter: blur(var(--aether-panel-blur)) saturate(122%);
+    -webkit-backdrop-filter: blur(var(--aether-panel-blur)) saturate(122%);
+    transition:
+        border-color var(--aether-duration) ease,
+        box-shadow var(--aether-duration) ease,
+        transform var(--aether-duration) ease;
+}
+.aether-ui :is(.fi-section, .fi-ta-ctn, .fi-wi-stats-overview-stat, .fi-small-stat-block):hover {
+    border-color: color-mix(in srgb, var(--aether-primary) 24%, var(--aether-edge-strong));
+    box-shadow:
+        var(--aether-elevation-hover),
+        inset 0 1px 0 color-mix(in srgb, var(--aether-text) 8%, transparent),
+        inset 0 -1px 0 color-mix(in srgb, var(--aether-background) 14%, transparent);
+    transform: translateY(-1px);
+}
+.aether-ui :is(.fi-section-header, .fi-ta-header, .fi-ta-header-cell, .fi-ta-row) {
+    border-color: color-mix(in srgb, var(--aether-edge) 90%, transparent);
+}
+.aether-ui .fi-section-header {
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--aether-text) 2.5%, transparent),
+        transparent 72%);
+}
+.aether-ui .fi-section-content { background: transparent; }
+.aether-ui .fi-ta-header-cell {
+    background: color-mix(in srgb, var(--aether-surface) 68%, transparent);
+}
+.aether-ui .fi-ta-row:hover {
+    background: color-mix(in srgb, var(--aether-primary) 5%, transparent);
+}
+
+/* Native buttons, links and inputs remain functional and keyboard operable. */
+.aether-ui :is(.fi-input-wrp, .fi-select-input, .fi-textarea) {
+    border: 1px solid var(--aether-edge);
+    background: color-mix(in srgb, var(--aether-surface) 62%, transparent);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--aether-text) 3.5%, transparent);
+    backdrop-filter: blur(clamp(10px, calc(var(--aether-panel-blur) * .7), 18px)) saturate(115%);
+    -webkit-backdrop-filter: blur(clamp(10px, calc(var(--aether-panel-blur) * .7), 18px)) saturate(115%);
+}
+.aether-ui :is(.fi-modal-window, .fi-dropdown-panel) {
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--aether-text) 3%, transparent),
+        transparent 36%),
+        color-mix(in srgb, var(--aether-surface) 82%, transparent);
+    border: 1px solid var(--aether-edge-strong);
+    box-shadow: var(--aether-elevation);
+    backdrop-filter: blur(calc(var(--aether-panel-blur) + 4px)) saturate(126%);
+    -webkit-backdrop-filter: blur(calc(var(--aether-panel-blur) + 4px)) saturate(126%);
+}
+.aether-ui .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    background: color-mix(in srgb, var(--aether-primary) 13%, var(--aether-surface));
+    box-shadow: inset 3px 0 0 color-mix(in srgb, var(--aether-primary) 88%, white);
+}
+.aether-ui :is(.fi-section-header, .fi-section-content, .fi-wi-stats-overview-stat) {
+    padding-inline: clamp(18px, 2vw, 24px);
+}
+.aether-ui .fi-section-header {
+    padding-block-end: clamp(10px, 1.2vw, 14px);
+}
+.aether-ui .fi-section-content {
+    padding-block-start: clamp(14px, 1.4vw, 18px);
+}
+.aether-ui .fi-wi-stats-overview-stat {
+    gap: 8px;
+}
+.aether-ui :is(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--aether-primary);
+    outline-offset: 3px;
+}
+
+/* Essential content must stay opaque: native terminal, xterm canvas and editor. */
+.aether-ui[data-aether-console="on"] #terminal,
+.aether-ui[data-aether-console="on"] #terminal .xterm,
+.aether-ui[data-aether-console="on"] #terminal .xterm-viewport {
+    background-color: var(--aether-console-background);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+.aether-ui :is(.fi-code-editor, .fi-fo-code-editor) {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+@media (max-width: 767px) {
+    .aether-ui :is(.fi-section, .fi-ta-ctn, .fi-wi-stats-overview-stat) {
+        box-shadow: 0 8px 26px rgba(3, 13, 28, .1);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .aether-ui :is(.fi-section, .fi-wi-stats-overview-stat) { transition: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+    .aether-ui :is(.fi-section, .fi-ta-ctn, .fi-wi-stats-overview-stat, .fi-simple-main,
+        .fi-sidebar, .fi-topbar, .fi-sidebar-header, .fi-modal-window, .fi-dropdown-panel) {
+        background: color-mix(in srgb, var(--aether-surface) 96%, var(--aether-background));
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+}
+@media (forced-colors: active) {
+    .aether-ui :is(.fi-section, .fi-ta-ctn, .fi-wi-stats-overview-stat,
+        .fi-sidebar, .fi-topbar, .fi-simple-main) {
+        background: Canvas;
+        color: CanvasText;
+        border: 1px solid CanvasText;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+}
+
+/* === AETHER ATMOSPHERE REVIEW LAYER END === */
+
+/* Keep effects optional and respect the user's reduced-transparency preference. */
+@media (prefers-reduced-transparency: reduce) {
+    html.aether-ui body { background-image: none; }
+}
+
+
+/* === AETHER ATMOSPHERE — ANIMATED PARTICLES (BETA) === */
+/* Two GPU-friendly fixed planes of decorative dust. No canvas, timers,
+   event handlers, network requests, DOM injection or user interaction. */
+html.aether-ui body {
+    position: relative;
+    isolation: isolate;
+}
+html.aether-ui body::before,
+html.aether-ui body::after {
+    content: "";
+    position: fixed;
+    inset: -8vh -6vw;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+    opacity: var(--aether-particle-opacity, 0);
+    background-repeat: no-repeat;
+    will-change: transform, opacity;
+    animation-play-state: var(--aether-particle-play, paused);
+}
+/* Near plane: quiet pearl and ice-blue lights with a little lavender. */
+html.aether-ui body::before {
+    background-image:
+        radial-gradient(circle at 9% 13%, rgba(221,246,255,.85) 0 1.4px, transparent 3.4px),
+        radial-gradient(circle at 21% 40%, rgba(174,221,245,.82) 0 1.1px, transparent 3px),
+        radial-gradient(circle at 38% 19%, rgba(233,223,255,.86) 0 1.3px, transparent 3.3px),
+        radial-gradient(circle at 57% 53%, rgba(213,243,255,.76) 0 1.2px, transparent 3px),
+        radial-gradient(circle at 76% 16%, rgba(219,224,255,.76) 0 1.1px, transparent 3px),
+        radial-gradient(circle at 91% 69%, rgba(200,232,255,.84) 0 1.5px, transparent 3.7px),
+        radial-gradient(circle at 15% 74%, rgba(211,231,255,.62) 0 1px, transparent 2.8px),
+        radial-gradient(circle at 49% 82%, rgba(235,230,255,.66) 0 1.3px, transparent 3.2px),
+        radial-gradient(circle at 64% 32%, rgba(203,235,249,.73) 0 1px, transparent 2.7px),
+        radial-gradient(circle at 85% 42%, rgba(230,239,255,.62) 0 1.2px, transparent 3px),
+        radial-gradient(circle at 33% 61%, rgba(215,245,255,.55) 0 1.2px, transparent 3px),
+        radial-gradient(circle at 6% 58%, rgba(202,215,255,.73) 0 1px, transparent 2.8px),
+        radial-gradient(circle at 70% 89%, rgba(226,233,255,.72) 0 1.4px, transparent 3px);
+    animation: aether-particles-float 36s ease-in-out infinite alternate;
+}
+/* Far plane: smaller, softly diffused lights moving at another speed. */
+html.aether-ui body::after {
+    background-image:
+        radial-gradient(circle at 17% 29%, rgba(198,224,255,.65) 0 1px, transparent 5px),
+        radial-gradient(circle at 44% 13%, rgba(215,207,255,.65) 0 1px, transparent 4.5px),
+        radial-gradient(circle at 83% 24%, rgba(202,232,255,.62) 0 1px, transparent 4.8px),
+        radial-gradient(circle at 68% 72%, rgba(226,228,255,.68) 0 1px, transparent 4px),
+        radial-gradient(circle at 12% 91%, rgba(226,246,255,.55) 0 1px, transparent 5px),
+        radial-gradient(circle at 96% 52%, rgba(223,216,255,.62) 0 1px, transparent 4.7px),
+        radial-gradient(circle at 39% 43%, rgba(207,227,255,.5) 0 1px, transparent 4.8px),
+        radial-gradient(circle at 54% 93%, rgba(219,239,255,.56) 0 1px, transparent 4.8px),
+        radial-gradient(circle at 29% 76%, rgba(223,216,255,.65) 0 1px, transparent 4px),
+        radial-gradient(circle at 75% 47%, rgba(225,245,255,.58) 0 1px, transparent 5px);
+    animation: aether-particles-depth 51s ease-in-out infinite alternate;
+}
+@keyframes aether-particles-float {
+    0% { transform: translate3d(-1.2vw, 1.2vh, 0); opacity: calc(var(--aether-particle-opacity, .50) * .52); }
+    52% { transform: translate3d(1.1vw, -2.1vh, 0); opacity: var(--aether-particle-opacity, .50); }
+    100% { transform: translate3d(2.4vw, -3.7vh, 0); opacity: calc(var(--aether-particle-opacity, .50) * .68); }
+}
+@keyframes aether-particles-depth {
+    0% { transform: translate3d(1.8vw, -1.1vh, 0) scale(1); opacity: calc(var(--aether-particle-opacity, .50) * .36); }
+    50% { transform: translate3d(-1.2vw, 1.7vh, 0) scale(1.015); opacity: calc(var(--aether-particle-opacity, .50) * .65); }
+    100% { transform: translate3d(-2.7vw, 3vh, 0) scale(1.025); opacity: calc(var(--aether-particle-opacity, .50) * .42); }
+}
+/* Setting Motion off freezes particles; this system preference has priority. */
+@media (prefers-reduced-motion: reduce) {
+    html.aether-ui body::before,
+    html.aether-ui body::after { animation: none !important; will-change: auto; }
+}
+@media (prefers-reduced-transparency: reduce), (forced-colors: active), (prefers-reduced-data: reduce) {
+    html.aether-ui body::before,
+    html.aether-ui body::after { display: none !important; }
+}
+/* === END AETHER ANIMATED PARTICLES === */
